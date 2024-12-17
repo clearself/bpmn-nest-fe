@@ -13,6 +13,10 @@
 
 预览演示地址：https://nest.flypa.cn/
 
+# BPMN工作流可视化操作截图
+
+![](./images/flow.png)
+
 # 安装
 
 ```bash
@@ -36,4 +40,8 @@ pnpm run build
 
 如果你喜欢我的作品或者您觉得我的项目对您有帮助，请给予一些支持！
 
-![./images/zanshang.jpg](./images/zanshang.jpg)
+<div style="display: flex; justify-content: center;">
+
+  <img src="./images/zanshang.jpg" alt="赞赏" width="300">
+
+</div>
