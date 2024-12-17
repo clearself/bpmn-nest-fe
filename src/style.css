@@ -1,0 +1,351 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+/* 去除默认样式 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: #fff;
+}
+/* 滚动条轨道 */
+::-webkit-scrollbar-track {
+  border-radius: 0px;
+  background-color: #f4f4f4;
+}
+/* 滑块 */
+::-webkit-scrollbar-thumb {
+  border-radius: 0px;
+  background-color: #cfcfcf;
+  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+}
+/* 鼠标悬浮在滑块上的样式 */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #ddd;
+}
+/* 滚动条按钮 */
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+.tableToolBar {
+  text-align: right;
+}
+.formFooter {
+  text-align: right;
+  padding: 8px;
+}
+/* 布局常用样式 */
+.w100 {
+  width: 100%;
+}
+.h100 {
+  height: 100%;
+}
+.ub {
+  display: flex;
+}
+.ub-wrap {
+  flex-wrap: wrap;
+}
+.ub-relative {
+  position: relative;
+}
+.ub-absolute {
+  position: absolute;
+}
+.ub-con {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.ub-as {
+  align-items: flex-start;
+}
+.ub-ac {
+  align-items: center;
+}
+
+.ub-ae {
+  align-items: flex-end;
+}
+.ub-ps {
+  justify-content: flex-start;
+}
+.ub-pc {
+  justify-content: center;
+}
+
+.ub-pe {
+  justify-content: flex-end;
+}
+
+.ub-pj {
+  justify-content: space-between;
+}
+
+.ub-ver {
+  flex-direction: column;
+}
+
+.ub-f1 {
+  flex: 1;
+}
+
+.ub-f2 {
+  flex: 2;
+}
+
+.ub-f3 {
+  flex: 3;
+}
+
+.ub-f4 {
+  flex: 4;
+}
+
+/* 常用 margin/padding 设置 */
+.m {
+  margin: 5px;
+}
+.m-0 {
+  margin: 0;
+}
+.m-1 {
+  margin: 10px;
+}
+.m-2 {
+  margin: 20px;
+}
+.mt-0 {
+  margin-top: 0;
+}
+.mt-1 {
+  margin-top: 10px;
+}
+.mt-2 {
+  margin-top: 20px;
+}
+.mt-3 {
+  margin-top: 30px;
+}
+.mt-4 {
+  margin-top: 40px;
+}
+.mt-5 {
+  margin-top: 50px;
+}
+.ml-0 {
+  margin-left: 0;
+}
+.ml-1 {
+  margin-left: 10px;
+}
+.ml-2 {
+  margin-left: 20px;
+}
+.ml-3 {
+  margin-left: 30px;
+}
+.ml-4 {
+  margin-left: 40px;
+}
+.ml-5 {
+  margin-left: 50px;
+}
+.mr-0 {
+  margin-right: 0;
+}
+.mr-1 {
+  margin-right: 10px;
+}
+.mr-2 {
+  margin-right: 20px;
+}
+.mr-3 {
+  margin-right: 30px;
+}
+.mr-4 {
+  margin-right: 40px;
+}
+.mr-5 {
+  margin-right: 50px;
+}
+.mb-0 {
+  margin-bottom: 0;
+}
+.mb-1 {
+  margin-bottom: 10px;
+}
+.mb-2 {
+  margin-bottom: 20px;
+}
+.mb-3 {
+  margin-bottom: 30px;
+}
+.mb-4 {
+  margin-bottom: 40px;
+}
+.mb-5 {
+  margin-bottom: 50px;
+}
+.mx-1 {
+  margin: 0 10px;
+}
+.mx-2 {
+  margin: 0 20px;
+}
+.mx-3 {
+  margin: 0 30px;
+}
+.mx-4 {
+  margin: 0 40px;
+}
+.mx-5 {
+  margin: 0 50px;
+}
+.my-1 {
+  margin: 10px 0;
+}
+.my-2 {
+  margin: 20px 0;
+}
+.my-3 {
+  margin: 30px 0;
+}
+.my-4 {
+  margin: 40px 0;
+}
+.my-5 {
+  margin: 50px 0;
+}
+/* 常用 padding 设置 */
+.p {
+  padding: 5px;
+}
+.p-0 {
+  padding: 0;
+}
+.p-1 {
+  padding: 10px;
+}
+.p-2 {
+  padding: 20px;
+}
+.pt-0 {
+  padding-top: 0;
+}
+.pt-1 {
+  padding-top: 10px;
+}
+.pt-2 {
+  padding-top: 20px;
+}
+.pt-3 {
+  padding-top: 30px;
+}
+.pt-4 {
+  padding-top: 40px;
+}
+.pt-5 {
+  padding-top: 50px;
+}
+.pl-0 {
+  padding-left: 0;
+}
+.pl-1 {
+  padding-left: 10px;
+}
+.pl-2 {
+  padding-left: 20px;
+}
+.pl-3 {
+  padding-left: 30px;
+}
+.pl-4 {
+  padding-left: 40px;
+}
+.pl-5 {
+  padding-left: 50px;
+}
+.pr-0 {
+  padding-right: 0;
+}
+.pr-1 {
+  padding-right: 10px;
+}
+.pr-2 {
+  padding-right: 20px;
+}
+.pr-3 {
+  padding-right: 30px;
+}
+.pr-4 {
+  padding-right: 40px;
+}
+.pr-5 {
+  padding-right: 50px;
+}
+.pb-0 {
+  padding-bottom: 0;
+}
+.pb-1 {
+  padding-bottom: 10px;
+}
+.pb-2 {
+  padding-bottom: 20px;
+}
+.pb-3 {
+  padding-bottom: 30px;
+}
+.pb-4 {
+  padding-bottom: 40px;
+}
+.pb-5 {
+  padding-bottom: 50px;
+}
+.px-1 {
+  padding: 0 10px;
+}
+.px-2 {
+  padding: 0 20px;
+}
+.px-3 {
+  padding: 0 30px;
+}
+.px-4 {
+  padding: 0 40px;
+}
+.px-5 {
+  padding: 0 50px;
+}
+.py-1 {
+  padding: 10px 0;
+}
+.py-2 {
+  padding: 20px 0;
+}
+.py-3 {
+  padding: 30px 0;
+}
+.py-4 {
+  padding: 40px 0;
+}
+.py-5 {
+  padding: 50px 0;
+}
+.white-bg {
+  background-color: #ffffff;
+}
+.border-box {
+  box-sizing: border-box;
+}

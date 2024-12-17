@@ -1,0 +1,6 @@
+.#{$theme-name} {
+  @import './global.scss';
+  @import './header.scss';
+  @import './layout.scss';
+  @import './breadcrumb.scss';
+}

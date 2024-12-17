@@ -1,0 +1,14 @@
+.app-breadcrumb {
+  .no-redirect {
+    color: $theme-bg-color !important;
+  }
+}
+.ant-breadcrumb a {
+  color: $theme-bg-color !important;
+}
+.ant-breadcrumb .ant-breadcrumb-separator {
+  color: $theme-bg-color !important;
+}
+.ant-breadcrumb a:hover {
+  color: lighten($theme-bg-color, 4%) !important;
+}

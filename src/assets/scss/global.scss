@@ -1,0 +1,97 @@
+/**
+定义变量
+**/
+
+/** header 背景颜色 **/
+$header_bg: #fff;
+$c1: #285577;
+$c2: #0066b2;
+$c3: #6caad9;
+$c4: #b1d3ec;
+
+$rc1: #55391c;
+$rc2: #ff8000;
+$rc3: #ffc080;
+$rc4: #ffdfbf;
+$btn_color: #1890ff;
+$default-theme-color: rgb(22, 93, 255);
+// * {
+//   font-size: 12px;
+// }
+// 解决a-table size=small 时 分页器按钮间距为0的问题
+.ant-pagination.ant-pagination-mini .ant-pagination-item,
+.ant-pagination.ant-pagination-mini .ant-pagination-prev,
+.ant-pagination.ant-pagination-mini .ant-pagination-next {
+  margin-inline-end: 6px;
+}
+.ant-table-wrapper .ant-table-pagination.ant-pagination {
+  margin: 10px 0;
+}
+// 模态框默认主题样式处理
+// .ant-modal {
+//   .ant-modal-header {
+//     background-image: linear-gradient(129deg, $default-theme-color 0%, #16b2cc 100%);
+//   }
+//   .ant-modal-title {
+//     color: rgba(255, 255, 255, 1);
+//   }
+//   .ant-modal-close {
+//     color: rgba(255, 255, 255, 0.6);
+//     &:hover {
+//       color: rgba(255, 255, 255, 1);
+//     }
+//   }
+// }
+// 侧拉框默认主题样式处理
+// .ant-drawer {
+//   .ant-drawer-header {
+//     background-image: linear-gradient(129deg, $default-theme-color 0%, #16b2cc 100%);
+//   }
+//   .ant-drawer-title {
+//     color: rgba(255, 255, 255, 1);
+//   }
+//   .ant-drawer-close {
+//     color: rgba(255, 255, 255, 0.6);
+//     &:hover {
+//       color: rgba(255, 255, 255, 1);
+//     }
+//   }
+// }
+// 面包屑默认主题样式处理
+.app-breadcrumb {
+  .no-redirect {
+    color: $default-theme-color;
+  }
+}
+.ant-breadcrumb a {
+  color: $default-theme-color;
+}
+.ant-breadcrumb .ant-breadcrumb-separator {
+  color: $default-theme-color;
+}
+.ant-breadcrumb a:hover {
+  color: lighten($default-theme-color, 4%);
+}
+
+/* 搜索区域样式 **/
+::-webkit-input-placeholder {
+  font-size: 12px !important;
+}
+.ant-form-item .ant-form-item-label > label {
+  font-size: 12px;
+}
+.search-wrapper {
+  margin-bottom: 10px;
+  .ant-form-item {
+    margin: 5px 10px;
+  }
+}
+/* 表格斑马样式 **/
+.ant-table-striped .table-striped td {
+  background-color: #fafafa;
+}
+.lang-change {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
