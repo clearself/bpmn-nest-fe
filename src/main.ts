@@ -12,7 +12,9 @@ import 'ant-design-vue/dist/reset.css'
 import globalComponent from '@/components/index'
 import '@/iconfont/iconfont.css'
 import '@/styles/index.scss'
+
 import { loadDirectives } from '@/directives'
+import ganttastic from '@infectoone/vue-ganttastic'
 // 导入多语言
 import i18n from '@/i18n'
 // import SvgIcon from '@/components/svg-icon/inndex.vue'
@@ -51,6 +53,7 @@ app.use(Socketio, {
     // ...其它选项
   }
 })
+app.use(ganttastic)
 router.isReady().then(() => {
   app.mount('#app')
 })
