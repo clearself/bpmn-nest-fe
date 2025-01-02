@@ -94,21 +94,19 @@
     </div>
     <div id="gantt_here" class="gantt-container" />
   </section>
-  <RightBox v-model:show="curShow" :task="curData" @success="onSuccess" />>
+  <RightBox v-model:show="curShow" :task="curData" @success="onSuccess" />
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, toRefs, onMounted, watchEffect, defineExpose, onBeforeUnmount } from 'vue'
-import RightBox from './RightBox/index.vue'
-import { timeFormat } from '@/utils/tools'
+import { ref, reactive, toRefs, onMounted, onBeforeUnmount, nextTick } from 'vue'
 import { gantt } from 'dhtmlx-gantt'
 import 'dhtmlx-gantt/codebase/dhtmlxgantt.css'
 import demoData from './demoData.json'
-import { nextTick } from 'vue'
+import RightBox from './RightBox/index.vue'
+import { timeFormat } from '@/utils/tools'
 const tasksData = ref(demoData)
 const curData: any = ref({})
 const curShow = ref(false)
-
 //此方法是通过父子节点的关联性设置并且与时间相关联，父节点 设置 render: 'split'拆分子任务过程，子任务过程关联上父节点id（用parent）。可以通过设置子进程的开始结束时间或持续时间（duration）来设置子进程的长度。
 // 注意id 的唯一性
 const fullData = reactive({
@@ -173,7 +171,6 @@ const zoomConfig: any = {
           format: function (date: any) {
             const dateToStr = gantt.date.date_to_str('%m-%d')
             const endDate = gantt.date.add(date, 6, 'day')
-            // const weekNum = gantt.date.date_to_str('%W')(date)
             return dateToStr(date) + ' 至 ' + dateToStr(endDate)
           }
         }
@@ -197,13 +194,19 @@ const changeShow = (val: any) => {
 
 //初始化甘特图
 const initGantt = () => {
+  // 开启marker插件
+  gantt.plugins({ marker: true, tooltip: true })
   //设置甘特图时间的起始结束时间，并允许显示超过时间刻度任务
-  gantt.config.start_date = new Date(`${new Date().getFullYear()},${new Date().getMonth() - 6},${new Date().getDay()}`)
-  gantt.config.end_date = new Date(`${new Date().getFullYear() + 1},${new Date().getMonth()},${new Date().getDay()}`)
+  gantt.config.start_date = new Date(new Date().getFullYear(), new Date().getMonth() - 6, new Date().getDay())
+  gantt.config.end_date = new Date(new Date().getFullYear() + 1, new Date().getMonth(), new Date().getDay())
+  //是否显示左侧树表格
+  gantt.config.show_grid = fullData.show
   gantt.config.show_tasks_outside_timescale = true
   const dateToStr = gantt.date.date_to_str('%Y.%m.%d')
   gantt.config.grid_width = 380
   gantt.config.min_grid_column_width = 150 // 设置调整网格大小时左侧每一格的最小宽度---优先于grid_width
+  gantt.config.bar_height = 30
+  gantt.config.row_height = 40 //设置行高
   gantt.config.autofit = true
   gantt.config.fit_tasks = true //自动延长时间刻度，以适应所有显示的任务
   gantt.config.auto_types = true //将包含子任务的任务转换为项目，将没有子任务的项目转换回任务
@@ -216,15 +219,12 @@ const initGantt = () => {
   gantt.config.work_time = true // 是否允许在工作时间而不是日历时间中计算任务的持续时间
 
   gantt.config.smart_scales = true // 仅仅渲染在屏幕可见的那部分时间轴。在处理时间轴非常长的时候，可以提升性能
-
   gantt.config.smart_rendering = true // 按需渲染, 仅仅渲染在屏幕可见的那部分任务和依赖线。这个在显示大量的任务时，性能比较高。
   gantt.config.drag_links = false // 取消连线
   gantt.config.details_on_create = true
   gantt.config.resize_rows = true //用户可以通过拖拽调整行高
   // gantt.config.open_tree_initially = true //界面初始化时展开图表树形结构
   // gantt.config.open_tree_initially = true //界面初始化时展开图表树形结构
-  //是否显示左侧树表格
-  gantt.config.show_grid = fullData.show
 
   gantt.ext.draw = true
   // 配置Gantt内置弹出框元素(title内容)
@@ -235,7 +235,6 @@ const initGantt = () => {
   //进度条
   gantt.templates.task_text = function (start, end, task) {
     let status = ''
-    // const progressPerson = ''
     if (task.status == '1') {
       //未开始
       status = 'lag'
@@ -250,8 +249,7 @@ const initGantt = () => {
     } else {
       status = 'normal'
     }
-    return ` <div class="project-progress-${status}">${task.text}
-</div>`
+    return ` <div class="project-progress-${status}">${task.text}</div>`
   }
   //表格配置
   gantt.config.columns = [
@@ -260,41 +258,27 @@ const initGantt = () => {
       label: '项目名称',
       resize: true,
       tree: true,
-      align: 'left'
-      // width: 150
+      align: 'left',
+      width: 150
     },
     {
       name: 'start_date',
       label: '开始时间',
       resize: true,
-      align: 'center'
-      // width: 150
+      align: 'center',
+      width: 150
     },
     { name: 'duration', label: '工期', align: 'center', width: 70 },
-    { name: 'progress', label: '进度', align: 'center', width: 50 },
+    {
+      name: 'progress',
+      label: '进度',
+      align: 'center',
+      width: 50
+    },
     { name: 'add', width: 44 }
   ]
-  //更改树状的图标
-  // gantt.templates.grid_open = (item) => {
-  //   // console.log('item', item)
-  //   const res = "<div  class='gantt_" +
-  //     (item.$open ? "close" : "open") + "'></div>"
-  //   return res
-  // }
-  //更改父项图标
-  // gantt.templates.grid_folder = (item) => {
-  //   return ''
-  // }
-  // //更改子项图标
-  // gantt.templates.grid_file = (item) => {
-  //   return ''
-  // }
   gantt.i18n.setLocale('cn') //设置语言
   gantt.ext.zoom.init(zoomConfig) //配置初始化扩展
-  // 开启marker插件
-  gantt.plugins({ marker: true, tooltip: true })
-  // const today = new Date(dayjs(new Date()).format("YYYY-MM-DD"));
-  // const dateToStr2 = gantt.date.date_to_str(gantt.config.task_date);
 
   // 给时间Cell添加类名
   gantt.templates.timeline_cell_class = function (task, date) {
@@ -318,15 +302,15 @@ const initGantt = () => {
 
   gantt.setSkin('meadow')
   gantt.init('gantt_here') //初始化
-
-  gantt.config.grid_width = 380
-  gantt.config.min_grid_column_width = 150 // 设置调整网格大小时左侧每一格的最小宽度---优先于grid_width
-  gantt.config.row_height = 40 //设置行高
   refreshData(tasksData.value)
 }
 
 const refreshData = (tasks: any) => {
   gantt.clearAll()
+  gantt.config.grid_width = 380 //设置甘特图宽度
+  gantt.config.min_grid_column_width = 150 // 设置调整网格大小时左侧每一格的最小宽度---优先于grid_width
+  gantt.config.bar_height = 30
+  gantt.config.row_height = 40 //设置行高
   // 解析新的数据并刷新图表
   // 今日线
   gantt.addMarker({
@@ -416,7 +400,6 @@ onMounted(() => {
 onBeforeUnmount(() => {
   gantt.ext.tooltips.tooltip.hide()
 })
-watchEffect(() => {})
 defineExpose({
   ...toRefs(fullData)
 })
@@ -520,14 +503,14 @@ defineExpose({
   background-position: center center;
   background-size: 100% auto;
 }
-::v-deep(.overdue-indicator1) {
-  width: 20px !important;
-  height: 100%;
-  background: url('../../assets/skip1.png');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 100% auto;
-}
+// ::v-deep(.overdue-indicator1) {
+//   width: 20px !important;
+//   height: 100%;
+//   background: url('../../../assets/skip1.png');
+//   background-repeat: no-repeat;
+//   background-position: center center;
+//   background-size: 100% auto;
+// }
 
 ::v-deep(.gantt_task_line) {
   background-color: rgba(0, 0, 0, 0) !important;
@@ -549,18 +532,8 @@ defineExpose({
 //设置任务条高度，以及圆角
 ::v-deep(.gantt_task_content) {
   color: #fff;
-  // top: 0px;
-  // height: 16px;
   border-radius: 50px;
 }
-
-// //调整字体高度，任务条距上边框的距离
-// ::v-deep(.gantt_data_area div, .gantt_grid div) {
-//   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-//   line-height: 18px;
-//   top: 5px;
-// }
-
 ::v-deep(.gantt_task_row.gantt_selected) {
   background-color: rgba(0, 0, 0, 0) !important;
 }
@@ -577,14 +550,6 @@ defineExpose({
     background-color: red;
   }
 }
-// ::v-deep(.gantt_row.gantt_row_task) {
-//   height: 36px !important;
-//   line-height: 36px !important;
-// }
-
-// ::v-deep(.gantt_task_grid_row_resize_wrap) {
-//   top: 36px !important;
-// }
 </style>
 <style>
 .weekend {

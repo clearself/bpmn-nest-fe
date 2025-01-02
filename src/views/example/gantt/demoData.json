@@ -23,8 +23,7 @@
       "users": [
         { "value": 1, "label": "张三" },
         { "value": 2, "label": "李四" }
-      ],
-      "open": true
+      ]
     },
     {
       "id": "0012",
@@ -36,8 +35,7 @@
       "users": [
         { "value": 3, "label": "王五" },
         { "value": 4, "label": "赫六" }
-      ],
-      "open": true
+      ]
     },
     {
       "id": "0013",
@@ -46,8 +44,7 @@
       "start_date": "2025-01-01",
       "end_date": "2025-01-31",
       "status": 2,
-      "users": [{ "value": 4, "label": "赫六" }],
-      "open": true
+      "users": [{ "value": 4, "label": "赫六" }]
     },
     {
       "id": "0014",
@@ -57,8 +54,7 @@
       "start_date": "2025-02-01",
       "end_date": "2025-02-28",
       "status": 3,
-      "users": [{ "value": 3, "label": "王五" }],
-      "open": true
+      "users": [{ "value": 3, "label": "王五" }]
     },
     {
       "id": "0015",
@@ -67,8 +63,7 @@
       "start_date": "2024-12-10",
       "end_date": "2025-02-10",
       "status": 1,
-      "users": [{ "value": 1, "label": "张三" }],
-      "open": true
+      "users": [{ "value": 1, "label": "张三" }]
     },
     {
       "id": "0016",
@@ -80,8 +75,8 @@
       "users": [
         { "value": 1, "label": "张三" },
         { "value": 3, "label": "王五" }
-      ],
-      "open": true
+      ]
     }
-  ]
+  ],
+  "links": []
 }
