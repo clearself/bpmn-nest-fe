@@ -51,6 +51,15 @@ export const constantRoutes: any[] = [
     hidden: true
   },
   {
+    path: '/deepseek',
+    component: () => import('@/views/example/deepseek/index.vue'),
+    name: 'deepseek',
+    meta: {
+      title: 'deepseek'
+    },
+    hidden: true
+  },
+  {
     path: '/403',
     component: () => import('@/views/error/403.vue'),
     name: '403',

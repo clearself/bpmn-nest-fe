@@ -141,6 +141,7 @@ export default {
   'fly.menu.example.table': 'Table data display',
   'fly.menu.example.components': 'Component display',
   'fly.menu.example.workFlow': 'Workflow BPMN',
+  'fly.menu.example.deepseek': 'AI assistant',
   'fly.menu.example.report': 'Super UI访问统计',
   'fly.menu.example.gantt': 'Gantt',
   'fly.menu.example.print': 'Print',

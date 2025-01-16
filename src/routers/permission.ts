@@ -13,7 +13,7 @@ import useUserStore from '@/store/modules/user'
 import usePermissionStore from '@/store/modules/permission'
 NProgress.configure({ showSpinner: false })
 //进度条样式
-const whiteList = ['/login', '/403', '/404', '/print', '/bpmn']
+const whiteList = ['/login', '/403', '/404', '/print', '/bpmn', '/deepseek']
 router.beforeEach((to, from, next) => {
   NProgress.start()
   if (getToken()) {
@@ -32,9 +32,9 @@ router.beforeEach((to, from, next) => {
             // isRelogin.show = false
             usePermissionStore()
               .generateRoutes()
-              .then((accessRoutes) => {
+              .then((accessRoutes: any) => {
                 // 根据roles权限生成可访问的路由表
-                accessRoutes.forEach((route) => {
+                accessRoutes.forEach((route: any) => {
                   if (!isHttp(route.path)) {
                     router.addRoute(route) // 动态添加可访问路由表
                   }
