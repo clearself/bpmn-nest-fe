@@ -83,7 +83,7 @@ import { useTheme } from '@/hooks/useTheme'
 const { themeList, activeThemeName, setTheme, modalList, activeModalName, setModal } = useTheme()
 import { $t } from '@/i18n'
 import { storeToRefs } from 'pinia'
-import logoImg from '@/assets/imgs/logo.jpg'
+import logoImg from '@/assets/imgs/logo.png'
 import useUserStoreHook from '@/store/modules/user'
 const userStore = useUserStoreHook()
 const { name, deptName } = storeToRefs(userStore)

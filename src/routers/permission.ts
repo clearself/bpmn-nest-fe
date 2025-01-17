@@ -1,4 +1,8 @@
+import { nextTick } from 'vue'
 import router from '@/routers/index'
+import { report } from '@/api'
+import { useRoute } from 'vue-router'
+const route = useRoute()
 import { message } from 'ant-design-vue'
 import NProgress from 'nprogress' // 进度条
 import 'nprogress/nprogress.css'
@@ -65,7 +69,22 @@ router.beforeEach((to, from, next) => {
     }
   }
 })
-
-router.afterEach(() => {
+const debounce = (func: any, wait: any) => {
+  let timeout: any
+  return function (...args: any) {
+    clearTimeout(timeout)
+    timeout = setTimeout(() => func.apply(this, args), wait)
+  }
+}
+const toReport = (path: string) => {
+  report({
+    path: encodeURI(path),
+    url: encodeURI(window.location.href),
+    remark: '基础管理系统-' + document.title
+  })
+}
+const debReport = debounce(toReport, 500)
+router.afterEach(async (to) => {
+  debReport(to.path)
   NProgress.done()
 })

@@ -63,7 +63,7 @@ import Bus from '@/bus'
 import { useTheme } from '@/hooks/useTheme'
 const { activeModalName } = useTheme()
 import { h, ref, onMounted, computed } from 'vue'
-import imgLogo from '@/assets/imgs/logo.jpg'
+import imgLogo from '@/assets/imgs/logo.png'
 import imgLogoClose from '@/assets/imgs/logo_close.png'
 import { useRouter, useRoute } from 'vue-router' //路由
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons-vue'

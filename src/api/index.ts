@@ -6,3 +6,12 @@ export const getRouters = () => {
     method: 'get'
   })
 }
+
+// 上报
+export const report = (data: any) => {
+  return request({
+    url: '/report/super',
+    method: 'post',
+    data: data
+  })
+}
