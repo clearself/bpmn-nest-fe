@@ -11,6 +11,8 @@ declare module 'diagram-js-minimap'
 declare module 'min-dash'
 declare module 'diagram-js-grid-bg'
 declare module 'socket.io-client'
+declare module 'three'
+declare module 'vue-3d-model'
 
 /** 所有 api 接口的响应数据都应该准守该格式 */
 interface ApiResponseData<T = any> {

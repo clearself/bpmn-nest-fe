@@ -18,13 +18,13 @@
     <upload-outlined />
     导出网页PDF
   </a-button> -->
-  <a-input v-model:value="textVal" @input="onInput1" />
+  <!-- <a-input v-model:value="textVal" @input="onInput1" />
   <a-button @click="reportSuperData">
     <upload-outlined />
     上报
-  </a-button>
+  </a-button> -->
   <!-- <Editor @onInput="onInput" /> -->
-  <div class="w100 ub" style="height: 800px">
+  <!-- <div class="w100 ub" style="height: 800px">
     <div class="ub ub-f1" style="height: 100%">
       <RichEidtor v-model:value="richHtml" />
     </div>
@@ -32,7 +32,7 @@
     <div class="ub ub-f1 ml-2 editor-content-view" style="height: 100%">
       <div class="w100 px-1" id="editor-content-view" v-html="richHtml" />
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script setup lang="ts">

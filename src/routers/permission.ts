@@ -85,6 +85,6 @@ const toReport = (path: string) => {
 }
 const debReport = debounce(toReport, 500)
 router.afterEach(async (to) => {
-  debReport(to.path)
+  // debReport(to.path)
   NProgress.done()
 })
