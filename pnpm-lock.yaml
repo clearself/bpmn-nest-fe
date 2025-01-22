@@ -161,12 +161,18 @@ dependencies:
   uuid:
     specifier: ^9.0.1
     version: 9.0.1
+  vue:
+    specifier: ^3.5.13
+    version: 3.5.13(typescript@5.7.3)
   vue-i18n:
     specifier: ^9.7.1
     version: 9.14.2(vue@3.5.13)
   vue-pdf-embed:
     specifier: ^2.1.0
     version: 2.1.2(vue@3.5.13)
+  vue-router:
+    specifier: ^4.5.0
+    version: 4.5.0(vue@3.5.13)
   vue3-ace-editor:
     specifier: ^2.2.4
     version: 2.2.4(ace-builds@1.37.5)(vue@3.5.13)
@@ -268,15 +274,9 @@ devDependencies:
   vitest:
     specifier: 2.1.8
     version: 2.1.8(sass@1.69.5)
-  vue:
-    specifier: ^3.5.13
-    version: 3.5.13(typescript@5.7.3)
   vue-eslint-parser:
     specifier: 9.3.1
     version: 9.3.1(eslint@8.51.0)
-  vue-router:
-    specifier: ^4.5.0
-    version: 4.5.0(vue@3.5.13)
   vue-tsc:
     specifier: 2.2.0
     version: 2.2.0(typescript@5.7.3)
@@ -2560,6 +2560,7 @@ packages:
 
   /@vue/devtools-api@6.6.4:
     resolution: {integrity: sha512-sGhTPMuXqZ1rVOk32RylztWkfXTRhuS7vgAKv0zjqk8gbsHkJ7xfFf+jbySxt7tWObEJwyKaHMikV/WGDiQm8g==}
+    dev: false
 
   /@vue/eslint-config-prettier@8.0.0(eslint@8.51.0)(prettier@3.4.2):
     resolution: {integrity: sha512-55dPqtC4PM/yBjhAr+yEw6+7KzzdkBuLmnhBrDfp4I48+wy+Giqqj9yUr5T2uD/BkBROjjmqnLZmXRdOx/VtQg==}
@@ -9135,7 +9136,7 @@ packages:
     dependencies:
       '@vue/devtools-api': 6.6.4
       vue: 3.5.13(typescript@5.7.3)
-    dev: true
+    dev: false
 
   /vue-tsc@2.2.0(typescript@5.7.3):
     resolution: {integrity: sha512-gtmM1sUuJ8aSb0KoAFmK9yMxb8TxjewmxqTJ1aKphD5Cbu0rULFY6+UQT51zW7SpUcenfPUuflKyVwyx9Qdnxg==}
