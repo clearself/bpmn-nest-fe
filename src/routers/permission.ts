@@ -85,6 +85,9 @@ const toReport = (path: string) => {
 }
 const debReport = debounce(toReport, 500)
 router.afterEach(async (to) => {
-  // debReport(to.path)
+  if (import.meta.env.VITE_MODE === 'production') {
+    // 生产环境逻辑
+    debReport(to.path)
+  }
   NProgress.done()
 })

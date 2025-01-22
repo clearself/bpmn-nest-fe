@@ -143,6 +143,7 @@ export default {
   'fly.menu.example.workFlow': 'Workflow BPMN',
   'fly.menu.example.deepseek': 'AI assistant',
   'fly.menu.example.three': '3D Model',
+  'fly.menu.example.markmap': 'Markdown transfer markmap',
   'fly.menu.example.report': 'Super UI访问统计',
   'fly.menu.example.gantt': 'Gantt',
   'fly.menu.example.print': 'Print',

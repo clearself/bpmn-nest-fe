@@ -145,6 +145,7 @@ export default {
   'fly.menu.example.gantt': '甘特图',
   'fly.menu.example.deepseek': 'AI助手',
   'fly.menu.example.three': '3D模型',
+  'fly.menu.example.markmap': 'Markdown转思维导图',
   'fly.menu.example.print': '打印',
   'fly.menu.three': '3D场景',
   'fly.menu.three.init': '初始化',
