@@ -1,1 +1,0 @@
-import e from"./vue-composition-ac5e85f9.js";import{d as o,X as t,a0 as n,k as r}from"./vue-ced722ac.js";import"./antDesign-4a9bc9e2.js";import"./index-56f8bac0.js";import"./index-5ec9320a.js";import"./echarts-de64fab6.js";const s={class:"flex flex-col h-screen p-2"},u=o({__name:"index",setup(_){return(i,p)=>(t(),n("div",s,[r(e)]))}});export{u as default};

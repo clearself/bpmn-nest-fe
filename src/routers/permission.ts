@@ -1,8 +1,5 @@
-import { nextTick } from 'vue'
 import router from '@/routers/index'
 import { report } from '@/api'
-import { useRoute } from 'vue-router'
-const route = useRoute()
 import { message } from 'ant-design-vue'
 import NProgress from 'nprogress' // 进度条
 import 'nprogress/nprogress.css'
@@ -12,7 +9,6 @@ import { $t } from '@/i18n'
 const { setTitle } = useTitle()
 import { getToken } from '@/utils/auth'
 import { isHttp } from '@/utils/validate'
-// import { isRelogin } from '@/utils/request'
 import useUserStore from '@/store/modules/user'
 import usePermissionStore from '@/store/modules/permission'
 NProgress.configure({ showSpinner: false })
@@ -28,7 +24,6 @@ router.beforeEach((to, from, next) => {
       NProgress.done()
     } else {
       if (useUserStore().roles.length === 0) {
-        // isRelogin.show = true
         // 判断当前用户是否已拉取完user_info信息
         useUserStore()
           .getInfo()
@@ -69,11 +64,13 @@ router.beforeEach((to, from, next) => {
     }
   }
 })
-const debounce = (func: any, wait: any) => {
-  let timeout: any
-  return function (...args: any) {
-    clearTimeout(timeout)
-    timeout = setTimeout(() => func.apply(this, args), wait)
+const debounce = (func: (...args: any[]) => void, wait: number) => {
+  let timeout: NodeJS.Timeout | null = null
+  return (...args: any[]) => {
+    if (timeout !== null) {
+      clearTimeout(timeout)
+    }
+    timeout = setTimeout(() => func(...args), wait)
   }
 }
 const toReport = (path: string) => {

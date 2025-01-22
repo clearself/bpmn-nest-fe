@@ -8,9 +8,17 @@ import { defineStore } from 'pinia'
 
 // 匹配views里面所有的.vue文件
 const modules = import.meta.glob('@/views/**/*.vue')
-
+interface Route {
+  [key: string]: any
+}
 const usePermissionStore = defineStore('permission', {
-  state: () => ({
+  state: (): {
+    routes: Route[]
+    addRoutes: Route[]
+    defaultRoutes: Route[]
+    topbarRouters: Route[]
+    sidebarRouters: Route[]
+  } => ({
     routes: [],
     addRoutes: [],
     defaultRoutes: [],
@@ -87,7 +95,7 @@ function filterAsyncRouter(asyncRouterMap, lastRouter = false, type = false) {
 }
 
 function filterChildren(childrenMap, lastRouter = false) {
-  let children = []
+  let children: any = []
   childrenMap.forEach((el, index) => {
     if (el.children && el.children.length) {
       if (el.component === 'ParentView' && !lastRouter) {

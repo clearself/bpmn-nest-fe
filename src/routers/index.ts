@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { $t } from '@/i18n'
 import { setRouteChange } from '@/hooks/useRouteListener'
 const Layout = () => import('@/layout/index.vue')
+const Redirect = () => import('@/views/redirect/index.vue')
 export const constantRoutes: any[] = [
   {
     path: '/redirect',
@@ -10,7 +10,7 @@ export const constantRoutes: any[] = [
     children: [
       {
         path: '/redirect/:path(.*)',
-        component: () => import('@/views/redirect/index.vue')
+        component: Redirect
       }
     ]
   },
@@ -28,7 +28,7 @@ export const constantRoutes: any[] = [
         path: '/index',
         component: () => import('@/views/dashboard/index.vue'),
         name: 'Index',
-        meta: { title: $t('fly.menu.home'), icon: 'dashboard', affix: true }
+        meta: { title: 'fly.menu.home', icon: 'dashboard', affix: true }
       }
     ]
   },

@@ -136,6 +136,7 @@ export default {
   dragOrder: 'Drag and drop fields for sorting',
   sureTips: 'Are you sure?',
   'fly.menu.home': 'Home',
+  'fly.menu.vue-super-ui': 'Vue Super UI Official Website',
   'fly.menu.example': 'Functional Example Display',
   'fly.menu.example.enumer': 'Front end implementation of import and export',
   'fly.menu.example.table': 'Table data display',

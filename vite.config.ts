@@ -2,15 +2,16 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
 import { type ConfigEnv, type UserConfigExport, loadEnv } from 'vite'
-// https://vitejs.dev/config/
 import vueJsx from '@vitejs/plugin-vue-jsx'
+import AutoImport from 'unplugin-auto-import/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import Components from 'unplugin-vue-components/vite'
+import svgLoader from 'vite-svg-loader'
 import { visualizer } from 'rollup-plugin-visualizer'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 export default (configEnv: ConfigEnv): UserConfigExport => {
   console.log('load vite config...')
   const viteCfg = loadEnv(configEnv.mode, process.cwd()) as any
-  // console.log("vite config:", viteCfg);
-  // console.log("port:", loadEnv(mode, process.cwd()).VITE_PORT);
 
   return defineConfig({
     base: viteCfg.VITE_BASE_PATH,
@@ -18,6 +19,34 @@ export default (configEnv: ConfigEnv): UserConfigExport => {
       vue(),
       vueJsx({
         // options are passed on to @vue/babel-plugin-jsx
+      }),
+      // 支持将 SVG 文件导入为 Vue 组件
+      svgLoader({
+        defaultImport: 'url',
+        svgoConfig: {
+          plugins: [
+            {
+              name: 'preset-default',
+              params: {
+                overrides: {
+                  // @see https://github.com/svg/svgo/issues/1128
+                  removeViewBox: false
+                }
+              }
+            }
+          ]
+        }
+      }),
+      // 自动按需导入 API
+      AutoImport({
+        imports: ['vue', 'vue-router', 'pinia'],
+        dts: 'types/auto/auto-imports.d.ts',
+        resolvers: [ElementPlusResolver()]
+      }),
+      // 自动按需导入组件
+      Components({
+        dts: 'types/auto/components.d.ts',
+        resolvers: [ElementPlusResolver()]
       }),
       /** 将 SVG 静态图转化为 Vue 组件 */
       createSvgIconsPlugin({
@@ -56,7 +85,6 @@ export default (configEnv: ConfigEnv): UserConfigExport => {
       // host: '127.0.0.1', // 默认是 localhost
       port: 3001, // 默认是 3000 端口
       open: false, // 浏览器自动打开
-      https: false, // 是否开启 https
       proxy: {
         // 本地开发环境通过代理实现跨域，生产环境使用 nginx 转发
         '/api/': {
@@ -66,6 +94,12 @@ export default (configEnv: ConfigEnv): UserConfigExport => {
           ws: true,
           rewrite: (path) => path.replace(/^\/api/, '')
         }
+      },
+      // 是否允许跨域
+      cors: true,
+      // 预热常用文件，提高初始页面加载速度
+      warmup: {
+        clientFiles: ['./src/layouts/**/*.*', './src/pinia/**/*.*', './src/router/**/*.*']
       }
     },
     build: {

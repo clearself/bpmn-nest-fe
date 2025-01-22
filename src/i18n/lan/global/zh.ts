@@ -136,6 +136,7 @@ export default {
   dragOrder: '拖拽字段进行排序',
   sureTips: '你确定吗？',
   'fly.menu.home': '首页',
+  'fly.menu.vue-super-ui': 'Vue Super UI官网',
   'fly.menu.example': '功能示例展示',
   'fly.menu.example.enumer': '前端实现导入导出',
   'fly.menu.example.table': '表格数据展示',
