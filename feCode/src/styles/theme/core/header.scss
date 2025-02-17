@@ -1,0 +1,39 @@
+.sys_header {
+  background-image: none !important;
+  background-color: $theme-bg-color !important;
+  border-bottom-color: $theme-bg-color !important;
+  .icon,
+  .heder-text {
+    color: $header-icon-color !important;
+  }
+}
+// 顶部模式是顶部样式主题设置
+.top-model.left-wrapper {
+  background-color: $theme-bg-color;
+  .ant-menu-light {
+    background-color: $theme-bg-color;
+  }
+}
+.top-model .ant-menu-light .ant-menu-submenu > .ant-menu-submenu-title,
+.top-model .ant-menu-light > li.ant-menu-item {
+  > .ant-menu-item-icon svg {
+    fill: #fff;
+  }
+  color: #fff;
+  &:hover {
+    color: rgba(255, 255, 255, 0.8);
+    > .ant-menu-item-icon svg {
+      fill: rgba(255, 255, 255, 0.8);
+    }
+  }
+}
+.top-model .ant-menu-light .ant-menu-submenu-selected > .ant-menu-submenu-title {
+  color: #fff;
+  &:hover {
+    color: rgba(255, 255, 255, 0.8);
+  }
+}
+.top-model .ant-menu-light.ant-menu-horizontal > .ant-menu-submenu-selected::after,
+.top-model .ant-menu-light.ant-menu-horizontal > li.ant-menu-item.ant-menu-item-selected::after {
+  border-bottom-color: #ffffff;
+}

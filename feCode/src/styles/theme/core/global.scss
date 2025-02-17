@@ -1,0 +1,56 @@
+// 模态框样式处理
+.ant-modal {
+  .ant-modal-header {
+    background-image: none;
+  }
+  .ant-modal-title {
+    color: rgba(0, 0, 0, 0.88);
+  }
+  .ant-modal-close {
+    color: rgba(0, 0, 0, 0.45);
+    &:hover {
+      color: rgba(0, 0, 0, 0.88);
+    }
+  }
+}
+// 侧拉弹框样式处理
+.ant-drawer {
+  .ant-drawer-header {
+    background-image: none;
+  }
+  .ant-drawer-title {
+    color: rgba(0, 0, 0, 0.88);
+  }
+  .ant-drawer-close {
+    color: rgba(0, 0, 0, 0.45);
+    &:hover {
+      color: rgba(0, 0, 0, 0.88);
+    }
+  }
+}
+.opt-btn-fixed {
+  background-color: transparentize($theme-bg-color, 0.7);
+}
+.login-container {
+  .content {
+    .content-item {
+      &:hover {
+        background-color: darken($theme-bg-color, 10%) !important;
+        > div:nth-child(1) {
+          color: #ffffff !important;
+        }
+        .con-title,
+        .text,
+        .arraw {
+          color: #ffffff !important;
+        }
+      }
+      > div:nth-child(1) {
+        color: $theme-bg-color !important;
+      }
+      .arraw {
+        color: $theme-bg-color !important;
+      }
+    }
+  }
+}

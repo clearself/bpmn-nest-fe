@@ -7,9 +7,11 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    CodeDownload: typeof import('./../../src/components/CodeDownload/index.vue')['default']
     Col: typeof import('./../../src/components/Col/index.vue')['default']
     DictData: typeof import('./../../src/components/DictData/index.vue')['default']
     DictTag: typeof import('./../../src/components/DictTag/index.vue')['default']
+    DownloadCode: typeof import('./../../src/components/DownloadCode/index.vue')['default']
     Editor: typeof import('./../../src/components/Editor/index.vue')['default']
     FieldsSetting: typeof import('./../../src/components/FieldsSetting/index.vue')['default']
     FormModel: typeof import('./../../src/components/DictData/formModel.vue')['default']
@@ -25,6 +27,7 @@ declare module 'vue' {
     Row: typeof import('./../../src/components/Row/index.vue')['default']
     Statistic: typeof import('./../../src/components/Statistic/index.vue')['default']
     SvgIcon: typeof import('./../../src/components/svg-icon/index.vue')['default']
+    Tour: typeof import('./../../src/components/CodeDownload/tour.vue')['default']
     UploadImport: typeof import('./../../src/components/UploadImport/index.vue')['default']
     Watermark: typeof import('./../../src/components/Watermark/index.vue')['default']
   }

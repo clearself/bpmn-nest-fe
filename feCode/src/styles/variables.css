@@ -1,0 +1,18 @@
+/** 全局 CSS 变量，这种变量不仅可以在 CSS 和 SCSS 中使用，还可以导入到 JS 中使用 */
+:root {
+  /** 全局背景色 */
+  --esg-body-bg-color: #f2f3f5;
+  --esg-header-bg-color: #ffffff;
+  /** NavigationBar 组件 */
+  --esg-navigationbar-height: 50px;
+  /** Sidebar 组件（左侧模式全部生效、顶部模式全部不生效、混合模式非颜色部分生效） */
+  --esg-sidebar-menu-bg-color: #001428;
+  --esg-sidebar-menu-hover-bg-color: #409eff10;
+  --esg-sidebar-menu-text-color: #c0c4cc;
+  --esg-sidebar-menu-active-text-color: #ffffff;
+
+  /** Header 组件 */
+  --icon-header-color: #666;
+  /* 顶部header icon 颜色 */
+  --header-icon-color: #ffffff;
+}

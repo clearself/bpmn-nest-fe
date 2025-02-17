@@ -1,0 +1,247 @@
+{
+  "data": [
+    {
+      "id": "001",
+      "parent": "0",
+      "text": "项目1",
+      "type": "project",
+      "render": "split",
+      "progress": 0.8,
+      "end_date": "2024-12-31",
+      "start_date": "2024-12-01",
+      "open": true
+    },
+
+    {
+      "id": "0011",
+      "text": "项目1节点1",
+      "parent": "001",
+      "start_date": "2024-01-01",
+      "end_date": "2024-02-21",
+      "status": 2,
+      "open": true
+    },
+    {
+      "id": "0012",
+      "text": "项目1节点2",
+      "parent": "001",
+      "start_date": "2024-02-23",
+      "end_date": "2024-03-31",
+      "status": 2,
+      "open": true
+    },
+    {
+      "id": "0013",
+      "text": "项目1节点3",
+      "parent": "001",
+      "start_date": "2024-04-01",
+      "end_date": "2024-06-30",
+      "status": 2,
+      "open": true
+    },
+    {
+      "id": "0014",
+      "text": "项目1节点4",
+      "progress": 0.8,
+      "parent": "001",
+      "start_date": "2024-07-01",
+      "end_date": "2024-10-24",
+      "status": 3,
+      "open": true
+    },
+    {
+      "id": "0015",
+      "text": "项目1节点5",
+      "parent": "001",
+      "start_date": "2024-10-01",
+      "end_date": "2024-11-21",
+      "status": 1,
+      "open": true
+    },
+    {
+      "id": "0016",
+      "text": "项目1节点6",
+      "parent": "001",
+      "start_date": "2024-11-01",
+      "end_date": "2024-12-31",
+      "status": 1,
+      "open": true
+    },
+    {
+      "id": "002",
+      "parent": "0",
+      "text": "项目1",
+      "type": "project",
+      "render": "split",
+      "progress": 0.5,
+      "end_date": "2024-12-31",
+      "start_date": "2024-12-06",
+      "open": true
+    },
+    {
+      "id": "003",
+      "text": "项目3",
+      "type": "project",
+      "render": "split",
+      "progress": 0.2,
+      "end_date": "2025-10-01",
+      "start_date": "2024-12-11",
+      "parent": "0",
+      "open": true
+    },
+    {
+      "id": "004",
+      "text": "项目4",
+      "type": "project",
+      "render": "split",
+      "progress": 0.6,
+      "end_date": "2024-12-30",
+      "start_date": "2024-11-01",
+      "parent": "0",
+      "open": true
+    },
+    {
+      "end_date": "2025-01-30",
+      "start_date": "2024-11-01",
+      "parent": "0",
+      "id": "005",
+      "text": "项目5",
+      "type": "project",
+      "render": "split",
+      "progress": 0.5,
+      "open": true
+    },
+    {
+      "end_date": "2024-06-30",
+      "parent": "0",
+      "id": "006",
+      "text": "项目6",
+      "type": "project",
+      "render": "split",
+      "open": true,
+      "start_date": "2024-01-01"
+    },
+    {
+      "end_date": "2024-06-30",
+      "parent": "0",
+      "id": "007",
+      "text": "项目7",
+      "type": "project",
+      "render": "split",
+      "open": true,
+      "start_date": "2024-01-01"
+    },
+    {
+      "id": "0021",
+      "text": "项目2节点1",
+      "parent": "002",
+      "start_date": "2024-01-01",
+      "end_date": "2024-12-31",
+      "status": 1,
+      "open": true
+    },
+    {
+      "id": "0022",
+      "text": "项目2节点2",
+      "parent": "002",
+      "start_date": "2024-01-01",
+      "end_date": "2024-12-31",
+      "status": 1,
+      "open": true
+    },
+    {
+      "id": "0023",
+      "text": "项目2节点3",
+      "parent": "002",
+      "start_date": "2024-01-01",
+      "end_date": "2024-12-31",
+      "status": 1,
+      "open": true
+    },
+    {
+      "id": "0024",
+      "text": "项目2节点4",
+      "parent": "002",
+      "start_date": "2024-01-01",
+      "end_date": "2024-12-31",
+      "status": 1,
+      "open": true
+    },
+    {
+      "id": "0025",
+      "text": "项目2节点5",
+      "parent": "002",
+      "start_date": "2024-01-01",
+      "end_date": "2024-12-31",
+      "status": 1,
+      "open": true
+    },
+    {
+      "id": "0026",
+      "text": "项目2节点6",
+      "parent": "002",
+      "start_date": "2024-01-01",
+      "end_date": "2024-12-31",
+      "status": 1,
+      "open": true
+    },
+    {
+      "id": "0031",
+      "text": "项目3节点1",
+      "parent": "003",
+      "start_date": "2024-01-01",
+      "end_date": "2024-12-31",
+      "plan_start_date": "20240101",
+      "plan_end_date": "20241231",
+      "status": 1,
+      "apply_unit": "深圳",
+      "open": false,
+      "Long": "该节点耗时过长"
+    },
+    {
+      "id": "0032",
+      "text": "项目3节点2",
+      "parent": "003",
+      "start_date": "2024-01-01",
+      "end_date": "2024-12-31",
+      "status": 1,
+      "open": true
+    },
+    {
+      "id": "0033",
+      "text": "项目3节点3",
+      "parent": "002",
+      "start_date": "2024-01-01",
+      "end_date": "2024-12-31",
+      "status": 1,
+      "open": true
+    },
+    {
+      "id": "0034",
+      "text": "项目3节点4",
+      "parent": "003",
+      "start_date": "2024-01-01",
+      "end_date": "2024-12-31",
+      "status": 1,
+      "open": true
+    },
+    {
+      "id": "0035",
+      "text": "项目3节点5",
+      "parent": "003",
+      "start_date": "2024-01-01",
+      "end_date": "2024-12-31",
+      "status": 1,
+      "open": true
+    },
+    {
+      "id": "0036",
+      "text": "项目3节点6",
+      "parent": "003",
+      "start_date": "2024-01-01",
+      "end_date": "2024-12-31",
+      "status": 1,
+      "open": true
+    }
+  ]
+}
