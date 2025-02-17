@@ -97,19 +97,29 @@
             <span>{{ timeFormat(record.createTime) }}</span>
           </template>
           <template v-if="column.dataIndex === 'operation'">
-            <a-button type="link" size="small" v-if="record.userId !== 1" @click="showEditBox(record)">{{
-              $t('opts.edit')
-            }}</a-button>
-            <a-button type="link" size="small" v-if="record.userId !== 1" @click="changePassword(record)">{{
-              $t('opts.changePassword')
-            }}</a-button>
+            <a-button
+              type="link"
+              size="small"
+              v-if="record.userId !== 1 && record.userId !== 104"
+              @click="showEditBox(record)"
+              >{{ $t('opts.edit') }}</a-button
+            >
+            <a-button
+              type="link"
+              size="small"
+              v-if="record.userId !== 1 && record.userId !== 104"
+              @click="changePassword(record)"
+              >{{ $t('opts.changePassword') }}</a-button
+            >
             <a-popconfirm
               :title="$t('sureTips')"
               :ok-text="$t('opts.sure')"
               :cancel-text="$t('opts.cancel')"
               @confirm="toDelete(record)"
             >
-              <a-button type="link" size="small" v-if="record.userId !== 1" danger>{{ $t('opts.delete') }}</a-button>
+              <a-button type="link" size="small" v-if="record.userId !== 1 && record.userId !== 104" danger>{{
+                $t('opts.delete')
+              }}</a-button>
             </a-popconfirm>
           </template>
         </template>

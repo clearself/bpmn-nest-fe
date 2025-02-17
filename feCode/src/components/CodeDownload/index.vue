@@ -5,7 +5,7 @@
       <DownOutlined class="icon" />
     </a>
   </a-dropdown>
-  <Tour v-model:show="formShow" title="获取源码指南" />
+  <Tour v-model:show="formShow" title="获取前端源码指南" />
 </template>
 <script setup lang="ts">
 //国际化切换语言
