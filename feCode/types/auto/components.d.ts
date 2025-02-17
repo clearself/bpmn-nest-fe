@@ -11,7 +11,6 @@ declare module 'vue' {
     Col: typeof import('./../../src/components/Col/index.vue')['default']
     DictData: typeof import('./../../src/components/DictData/index.vue')['default']
     DictTag: typeof import('./../../src/components/DictTag/index.vue')['default']
-    DownCode: typeof import('./../../src/components/DownCode/index.vue')['default']
     DownloadCode: typeof import('./../../src/components/DownloadCode/index.vue')['default']
     Editor: typeof import('./../../src/components/Editor/index.vue')['default']
     FieldsSetting: typeof import('./../../src/components/FieldsSetting/index.vue')['default']
