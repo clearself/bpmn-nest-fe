@@ -9,6 +9,8 @@ import router from '@/routers'
 import '@/routers/permission'
 // import "ant-design-vue/dist/antd.css";
 import 'ant-design-vue/dist/reset.css'
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
 import globalComponent from '@/components/index'
 import '@/iconfont/iconfont.css'
 import '@/styles/index.scss'
@@ -42,9 +44,8 @@ import '@/assets/js/theme/normal.js'
 import '@/assets/js/theme/orange.js'
 /** 加载自定义指令 */
 loadDirectives(app)
-
 // app.component('SvgIcon', SvgIcon)
-app.use(store).use(globalComponent).use(i18n).use(Antd).use(router)
+app.use(store).use(globalComponent).use(i18n).use(Antd).use(ElementPlus).use(router)
 app.use(Socketio, {
   connection: import.meta.env.VITE_API_URL,
   options: {

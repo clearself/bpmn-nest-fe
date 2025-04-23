@@ -346,6 +346,9 @@ body {
 .white-bg {
   background-color: #ffffff;
 }
+.white-color {
+  color: #ffffff;
+}
 .border-box {
   box-sizing: border-box;
 }

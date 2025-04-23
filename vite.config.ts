@@ -82,7 +82,7 @@ export default (configEnv: ConfigEnv): UserConfigExport => {
       }
     },
     server: {
-      // host: '127.0.0.1', // 默认是 localhost
+      host: '127.0.0.1', // 默认是 localhost
       port: 3001, // 默认是 3000 端口
       open: false, // 浏览器自动打开
       proxy: {

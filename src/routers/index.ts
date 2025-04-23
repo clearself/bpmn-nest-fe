@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { setRouteChange } from '@/hooks/useRouteListener'
 const Layout = () => import('@/layout/index.vue')
+const LayoutChat = () => import('@/layoutChat/index.vue')
 const Redirect = () => import('@/views/redirect/index.vue')
 export const constantRoutes: any[] = [
   {
@@ -33,6 +34,22 @@ export const constantRoutes: any[] = [
     ]
   },
   {
+    path: '/',
+    name: 'Root',
+    component: LayoutChat,
+    redirect: '/chat/:uuid?',
+    children: [
+      {
+        path: '/chat/:uuid?',
+        name: 'Chat',
+        component: () => import('@/views/deepseek/index.vue'),
+        meta: { title: 'fly.menu.home', icon: 'dashboard', affix: true }
+      }
+    ],
+
+    hidden: true
+  },
+  {
     path: '/404',
     component: () => import('@/views/error/404.vue'),
     name: '404',
@@ -50,15 +67,15 @@ export const constantRoutes: any[] = [
     },
     hidden: true
   },
-  {
-    path: '/deepseek',
-    component: () => import('@/views/example/deepseek/index.vue'),
-    name: 'deepseek',
-    meta: {
-      title: 'deepseek'
-    },
-    hidden: true
-  },
+  // {
+  //   path: '/deepseek',
+  //   component: () => import('@/views/deepseek/index.vue'),
+  //   name: 'deepseek',
+  //   meta: {
+  //     title: 'deepseek'
+  //   },
+  //   hidden: true
+  // },
   {
     path: '/403',
     component: () => import('@/views/error/403.vue'),
@@ -120,7 +137,10 @@ const router = createRouter({
   // 创建一个 hash 历史记录。
   history: createWebHistory(),
   // 应该添加到路由的初始路由列表。
-  routes: constantRoutes
+  routes: constantRoutes,
+
+  strict: true,
+  scrollBehavior: () => ({ left: 0, top: 0 })
 })
 router.afterEach((to) => {
   setRouteChange(to)

@@ -1,3 +1,4 @@
+// @use './markdown.scss';
 /**
 定义变量
 **/
@@ -15,6 +16,9 @@ $rc3: #ffc080;
 $rc4: #ffdfbf;
 $btn_color: #1890ff;
 $default-theme-color: rgb(22, 93, 255);
+.theme-color {
+  color: $default-theme-color;
+}
 // * {
 //   font-size: 12px;
 // }

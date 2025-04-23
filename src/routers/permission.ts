@@ -13,7 +13,7 @@ import useUserStore from '@/store/modules/user'
 import usePermissionStore from '@/store/modules/permission'
 NProgress.configure({ showSpinner: false })
 //进度条样式
-const whiteList = ['/login', '/403', '/404', '/print', '/bpmn', '/deepseek']
+const whiteList = ['/login', '/403', '/404', '/print', '/bpmn', '/chat', '/chat/:uuid']
 router.beforeEach((to, from, next) => {
   NProgress.start()
   if (getToken()) {
@@ -55,7 +55,7 @@ router.beforeEach((to, from, next) => {
     }
   } else {
     // 没有token
-    if (whiteList.indexOf(to.path) !== -1) {
+    if (whiteList.indexOf(to.path) !== -1 || to.path.indexOf('/chat/') !== -1) {
       // 在免登录白名单，直接进入
       next()
     } else {

@@ -1,0 +1,79 @@
+.markdown-code-wrapper {
+  position: relative;
+  white-space: initial;
+  // background-color: #f6f6f7;
+  // line-height: 24px;
+  // display: flex;
+  // flex-direction: column;
+  // margin: 12px 0;
+  border-radius: 8px;
+  overflow: hidden;
+
+  .markdown-code-header {
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    // border-bottom: 1px solid #3c3c43;
+  }
+
+  .markdown-code-copy {
+    padding: 8px 14px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border: none;
+    color: #808080;
+    cursor: pointer;
+    transition: all 0.3s;
+    opacity: 100%;
+    z-index: 1;
+    .markdown-copy-icon {
+      margin-right: 4px;
+      pointer-events: none;
+    }
+
+    .markdown-copy-text {
+      pointer-events: none;
+      &.default {
+        display: initial;
+      }
+
+      &.done {
+        display: none;
+      }
+    }
+
+    &.copied {
+      .markdown-copy-icon {
+        --at-apply: 'i-ic:baseline-check';
+      }
+
+      .markdown-copy-text {
+        &.default {
+          display: none;
+        }
+
+        &.done {
+          display: initial;
+        }
+      }
+    }
+  }
+
+  .markdown-code-lang {
+    // --at-apply: absolute right-8 top-2;
+
+    // --at-apply: pl-14 text-14 font-500 'c-#3c3c43/56';
+    // --at-apply: transition-all-300 opacity-100 z-0;
+  }
+
+  pre {
+    code {
+      // background-color: #f6f6f7;
+      white-space: pre-wrap;
+      padding: 0;
+    }
+  }
+}

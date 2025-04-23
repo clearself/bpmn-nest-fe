@@ -1,5 +1,5 @@
 <template>
-  <div>待开发中...</div>
+  <!-- <div>待开发中...</div> -->
   <!-- <a-upload
     v-model:file-list="fileList"
     name="file"
@@ -12,12 +12,9 @@
       Click to Upload
     </a-button>
   </a-upload> -->
-
-  <!-- <a-input allowClear :placeholder="$t('inputTips')" v-model:value.trim="mdStr" />
-  <a-button :loading="exporting" class="mt-2" @click="exportPdf">
-    <upload-outlined />
-    导出网页PDF
-  </a-button> -->
+  <span>将网页转化成pdf导出：</span>
+  <a-input style="width: 500px" allowClear placeholder="请输入网页url" v-model:value.trim="mdStr" />
+  <a-button style="margin-left: 10px" :loading="exporting" class="mt-2" @click="exportPdf"> 导出网页PDF </a-button>
   <!-- <a-input v-model:value="textVal" @input="onInput1" />
   <a-button @click="reportSuperData">
     <upload-outlined />
